@@ -1,0 +1,22 @@
+Author:    Nagesh Nanjundachari
+Email:     garden.nagesh@gmail.com 
+Email:     nagesh_garden@yahoo.com
+Github:    gardennagesh
+File:      README
+Project:   C Linux Point_Of_Sales 
+Purpose:   To Demonstrate my "C" and Linux skills. 
+Intention: Bridge for ___________
+
+STEPS :
+1) pull the source fies in your /home/temp_dir.
+2) mkdir /home/temp_dir/pos_files/dbase/  . ThIS IS MUST.
+3) You should install "ncurses" headers and libs in your Linux OS.
+4) To compile this code, just run make. make uses Makefile.
+5) Make produces "pstart" executable. [Compiler warnings can be fixed or ignored]
+6) mv "pstart" executable  in  "/home/temp_dir"  and run "./pstart" 
+7) Read MANUAL how to use this application.
+
+
+
+
+

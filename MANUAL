@@ -1,0 +1,412 @@
+File: MANUAL
+This file explains how to use POINT_OF_SALE and or KITCHE_ORDER_TOKEN (KOT).
+POS can be used in shops. KOT can be used in hotels.
+
+
+Comment: Please read this file in vi-editor after reading README.
+
+Please read MANUAL meanwhile operate the product.
+---------------------------------------------------
+Note: run "pstart" application in text-based-terminal-session. (not in gtk-GUI or genome-GUI)
+      In Linux, you can launch  th keys CTAL-ALT-F1 or CTRL-ALT-F2 or CTRL-ALT-F3 . 
+      ESC key in  application helps you to come out of child menus.
+      Please Don't edit anything, as this file contains 
+      character-diagrams at the tail of this file.
+      character-diagrams gives an rough idea about bill-screen and kot-screen.
+      This will help u as u proceed.
+
+1) Please read README file before reading sucseeding statements.
+
+2) mkdir "./pos_files/dbase" . Then execute ./pstart inside /home/temp_dir directory.
+
+3) I assume now you are up to type login and password
+    in Welcome-menu. 
+
+4) For first time, input "nagesh" for Login Name, "nagesh" for Password.
+   After login you can create other pos users in SET-UP-MODE -> Add-Cash-Man.
+
+
+3) Press TAB_KEY or DOWN_ARROW_KEY, so that cursor can be placed
+   at "GET-IN"-button. Now press ENTER_KEY to get into main-menu.
+   At "EXIT"-button you come back to present working directory.
+   At "SHUT-DOWN"-button machine will shut-down.
+
+3) About Moment keys in a menu.
+    1) ESC_KEY:   Press this if u are not sure what to do. You can go previous.
+    a) TAB_KEY:   To place the cursor at next fields or buttons.
+    b) DOWN_ARROW:  To place the cursor at next fields or buttons. 
+    c) UP_ARROW:  To place the cursor at previous fields or buttons 
+        if previous field is data accepting.
+    d) ENTER_KEY:   To enter in to next menus. OR press it on OK, CANCEL, NEXT, DELETE buttons to commit acction.
+    e) ESC_KEY:   To come back to previous menu.
+    f) BACK_SPACE:  To erase last edited character.
+    g) RIGHT_ARROW: To enter next menu. Don't use to set cursor position.
+    g) RIGHT_ARROW: To enter next menu. Don't use to set cursor position.
+    h) LEFT_ARROW:  To come back to previous menu.  Don't use to set cursor position.
+
+4) Now you are in main_menu.
+   This main_menu has seven rows.
+      a) Setup-Mode   (create & make arrangements need to operate billing)
+      b) View-Reports  (After billing, transaction can be varified here)
+      c) Goto-Billing  (displays billing operation screen)
+      d) Exit-Billing  (exit confirmation from main-menu or billing)
+      e) Save-To-USB   (Save data to USB)
+      f) Restore from USB (Restore data from USB drive)
+      g) Removes-Dbase (Removes data base, function not assigned)
+
+Explained in detail.
+------------------------------------------------------------------------------
+5) Setup Mode:
+    In setup_mode user can create operational related data_base and can set
+    operational settings. Atleast creating a item(in CREATE-ITEMS) is
+    required to do billing. If u created a item, u can see that item by
+    entering item-code and pressing TAB_KEY in Item-Creation-Menu.
+    Note:
+    (If u feel inconvenient in operating setup-mode, Please execute script
+    "make_dbase" as root in test dirrectory which will provide few
+      ready-made items and other settings.
+      U can see them going to paricular menu and enter
+      required data at first field, then press TAB_KEY.
+
+    Buttons used in menus and their function:
+      a) NEXT: To store edited data and display next related entity in menu.
+      b) OK: To store edited data into data_base from menu.
+      c) CANCEL: To erase edited data from menu-fields.
+      d) DELETE: To remove displayed data from data_base.
+      Note: To activate a button, move cursor on button and press ENTER_Key
+
+    ROW-DISCRIPTION FOR Setup-Mode is followed:
+    ------------------------------------------
+      Please edit 'Y' or 'N' in flag settings fields.
+
+      1)Set operation:  All fields are self defined.
+                        Software can be used for KOT(Kitchen Order Ticket)
+                        for Hotels by setting "Set software as KOT" flag 'Y'.
+                        'N' make software as retail.
+
+      2)Add-kitchen:    Owner(user) can create a kitchen.
+                        Enter number and kitchen name.
+                        To see created one, press number and then press TAB_KEY.
+
+      3)Include-tax:    4 diffrent types of taxes can be created here.
+                        These taxes can be linked to items by tax-link-number.
+
+      4)Create-stores:  User can create diffrent stores here.
+                        Each store can be linked to particular tax-number.
+
+      5)Create-items:   User can create items here. Atlease one item is needed
+                        to do billing in bill-screen.
+                        (In DEMO-version max items that can be created is 15)
+
+      6)Add-bill-title: Shop address is entered here.
+                        Enter Section number 1, then enter details.
+                        To see it, enter section-no and press TAB_KEY.
+
+      7)Add-bill-tail:  Welcome, visit again can be typed here.
+
+      8)Add-cash-man:   Different cashiers can be added here.
+                        They can be set to operational privilages.
+                        (As root and user concept of linux).
+
+      9)Add-waiter:     Waiters can be added here.
+
+     10)Kot-no:         Kitchen Order Number can be set to as required.
+
+     11)Bill-no:        Bill Number can be set to as required.
+
+     12)Add-customer:   User can create credit-customers.
+     13)Bill-lines:     Set no of line that need to skip after a bill-print
+                        so that user can tare bill esily.
+
+      14)Add-salesman: User can create sales man.
+
+      15)Add-misc-amt:  Some misclenious amount like festival-discount,
+                        damage-charges can be added.
+                        This can be made optional to bill in SET-OPERATIONS.
+
+      16)Passwd:        Change Owner's password.
+
+      How to see stored data of above rows:
+      --------------------------------------
+              By pressing ENTER_KEY on a row, particular menu will
+              be displayed. If menu has number or code at first field, type
+              stored number and press TAB_KEY.Now user can see particulars
+              belonging to that number or code.
+    ---------------------------------------------------------------------------
+
+  6) View-Reports:
+        In view-report user can view or print the reports generated
+        after billing.
+        Different types of reports will be generated.
+        Reports can be viewed date-wise of all or a prticular entity.
+        To print reports to printer use "PRINTER"-Button.
+        To display reports on to screen use "SCREEN"-Button.
+
+        Note: depending upon row selection of reports-type, user need to
+              enter specific data. Data may be date, item or
+              store.Respective fields will be activated.
+
+        Few reports may not work perfectly.(This is Demonestration executable)
+----------------------------------------------------------------------------
+
+  7) Goto-Billing:
+        If ENTER-Key is pressed at "GOTO-BILLING", billing-screen
+        will be displayed.(See diagram at tail of this file.)
+        Here you can do billing operations.
+        By pressing TAB_KEY with no items in billing-screen user
+        can goto KOT-BILLING (Specifically for Hotels).
+        KOT means Kitchen Order Ticket.
+        Before start billing you must have few items created in
+
+data-base (This is explained in ITEM-CREATION of Setup-Mode).
+        Then you can use these created items in billing. How to select
+        items in bill explained below step by step.
+        Have Bill-Title, Bill-Tails in set-up mode for neat bill-print.
+
+    HOW TO Select a item in bill.
+    ----------------------------
+    By using PAGE_DOWN-key Items can be searched and selected in bill.
+    Or by using PAGE_UP-key. How to use PAGE_UP-Key is explained below.
+
+    The cursor is blinking at right end of "ENTER ENTITY=>>"
+    User can enter DATA here at cursor-blink.
+    _______________________________________
+    |  Format is   ENTER ENTITY=>> DATA   |
+    +-------------------------------------+
+    Use  BACK_SPACE_KEY to erase last edited character in DATA
+
+        DATA may be any of below.
+        ------------------------
+          1) Item code followed by PAGEUP-KEY.
+              eg. type 1 press PAGEUP.
+          2) Override Item quantity followed by HOME-KEY.
+              eg. locate cursor-bar at a item, type 22 as DATA press HOME.
+          3) Override Item Price followed by INSERT-KEY.
+              eg. locate cursor-bar at a item, type 445 as DATA press INSERT.
+          4) Service-Charge followed by END-KEY.(If items exist)
+              eg. 5.55 as DATA press END-KEY.
+          5) Pieces followed by F1-KEY.(If items exist)
+              eg. locate cursor-bar at a item, type 10 as DATA press F1.
+          6) Item-Discount followed by F2-KEY.(If items exist).
+              eg. locate cursor-bar at a item, type 20.25 as DATA press F2.
+          7) All-Items-Discount followed by CTRL+D.(If items exist)
+              eg. 15 as DATA press CTRL+D.
+          8) F6key: Misc-No selection if default misc is set 'N'
+              Misc-Amt will be selected wrt Misc-No.
+          9) Amount-Discount on basic-amt for bill followed by F7.
+              eg. 10 as DATA press F7.
+         10) %ge Discount on basic-amt for bill followed by F8.
+              eg. 10.10 as DATA press F7.
+         11) SalesMan no. followed by CTRL+S.(If items exist)
+              eg. 1 as DATA press CTRL+S.
+         About Moment Keys in billing-screen.
+      ------------------------------------
+          1) DOWN_ARROW: Scroll cursor-bar down.
+
+          2) UP_ARROW: Scroll cursor-bar up.
+
+          3) ESC_KEY: To exit billing-screen.(Exit menu will confirm exit)
+
+          4) ENTER-KEY: Commit and print bill.
+
+          5) CTRL+F: Locate forward cursor-bar by 7 more.
+
+          6) CTRL+B: Locate backword cursor-bar by 7 less.
+
+      Specific Bill Operation Keys.
+      ------------------------------
+
+          1) PAGE_DOWN-Key: Search and select items into bill-screen.
+                            As user types digits or alphabets,the matching
+                            items will be displayed. Select required item
+                            and press ENTER-key. The selected item will
+                            be appended to item-list.
+
+          2) DELETE-key: Locate cursor-bar on deleting item, Press DELETE.
+                          That particular item will be deleted.
+
+          3) ENTER-key: After entering all items in bill, press ENTER-Key.
+                        Now u can see bill tendering details. Now press
+                        ENTER-key again to commit and print bill.
+
+          3) F4-key: Aborts the bill.Bill-screen will reset.
+
+          4) F3-key: Re-calculates bill detail only for items.
+                     service, misc, bill-discount all will become zero.
+
+          5) F5-key: Stock can be entered to selective item (STOCK add key, stock add key).
+
+          6) F9-key: Cheque details entry-menu.
+
+          7) F10-key: Cash detail entry-menu.
+
+          8) F11-key: Card detail entry-menu.
+          
+          9) F12-key: Credit detail entry-menu.
+
+         11) CTRL+R: Set bill to Refund-type bill.
+
+         12) CTRL+V: View Misclenious-Amount details.
+------------------------------------------------------------------------
+
+ABOUT KOT-BILLING:
+------------------
+          If there is no items in bill-screen, by pressing TAB_KEY user
+          can switch to kot-screen. Set KOT software flag as 'Y' in OPERATION
+          settings of Setup-Mode. This makes user to switch
+          from bill-screen to kot-screen.
+
+        What is kot billing:
+        -------------------
+              KOT mean kitchen order ticket. The cutomer ordered items
+              containing ticket billing is kot-billing.
+              This Kot-billing is easily done in Kot-Screen.
+
+              Kot-screen has two sub-screens.
+              (See diagrams at tail of this file)
+              LEFT SCREEN is for KOT.
+              RIGHT SCREEN is to bill a table
+              (pending tables will be displayed on-line).
+
+          Steps to be followed:
+          ---------------------
+          Note : Status at Type: must blink with "kot-entry".
+          1) Enter table number in Tbl-field.
+          2) Press TAB_KEY to jump Wtr-field.
+          3) Enter waiter number in Wtr-field.
+          4) Press TAB_KEY to jump Entity-field.
+          5) Enter item-code followed by PAGEUP-KEY.
+          6) Repeat, entering item-code followed by
+                      PAGEUP-KEY to enter more items.
+          7) User can select items by searching as well,
+              for this you need to press PAGEDOWN-Key.
+              How to use PAGEDOWN is explained in advance.
+          8) Now enter ENTER-Key, PRINT KOT menu will appear.
+              Now press OK-button to print Kot.
+
+          Repeat same steps for anoter table.
+            The ordered tables will be displayed in right-screen.
+
+          How To Bill a Table.
+          --------------------
+              Press F2-key. The "Bill-Table" will
+                start blinking at Type:status.
+              Now the items pertaining to that table will displayed
+                  in left-screen.
+              Use UP-ARROW and DOWN-ARROW to move cursor-bar over different
+              tables in right-screen.
+              If you press ENTER-key, BILL-TABLE menu will be displayed.
+              Select "OK" to bill-table.
+              Now that particular table details will be displayed
+              in bill-screen. Now user can print-bill as explained in
+              specific bill operation keys(ENTER-key). He can abort
+              by pressing F4-key in bill-screen. This makes that table
+              become still pending.
+
+        How to override item-quantity.
+        ------------------------------
+              User can override item-quantity only in Type:"Kot-entry".
+              Place the cursor-bar on particular item, enter quantity
+              in Entity-field then press HOME-key.
+
+            KOT-Specific operation keys.
+            -----------------------------
+            Type:blinking status will highlight users operation.
+
+            F1-key: Sets for "kot-entry" in Type:status
+                    This helps u to start another kot.
+                    If you have used any of F2,F3,F4 user must press F1
+                    to start new kot.Because by pressing F1 all existing
+                    item details in right-screen will be cleared.
+                    In Type:"kot-entry"  user can able print Kot.
+
+            F2-key: Sets for "Bill-Table" in Type:status
+                    By pressing F2-key user can bill a table.
+                    Now user can make cursor-bar moments in right-screen.
+                    This helps to select prticular table.
+                    The items pertaining to table on which cursor-bar
+                    is located will be displayed in left-screen.
+
+           Press ENTER-key to make bill for that table.
+
+            F3-key: This key gives scrolling access to left-screen
+                     when Type is "Bill-Table".
+                    When user has pressed F2-key, the items pertaining to
+                    that table will be displayed in left-screen.
+                    When this table has more than 14 items, F3-key is useful.
+                    If Type status is "Kot-entry" no need to press F3.
+
+            F4-key: This key is used to transfer the From-Tbl on which
+                    cursor-bar is located To-Tbl(another table).
+                    If more than one table exist, place cursor bar in
+                    left-screen on that particular table.
+
+            F5-key: Under Implimantation.
+
+            F6-key: Under Implimantation.
+
+
+  HOW BILL-SCREEN LOOK LIKE --?
+
+  ________________________________________________________________________
+  | Enter Entity =>> _                         Date:27/11/02  Time:07:15 |
+  +----------------------------------------------------------------------+
+  | BillNo:1     Cashman:cman   Tbl:1  Wtr:4    Type:settle  Sman:    S: |
+  | Code     Item-Name        Quantity  Price/unit  Pcs   Disc    Amount |
+  +----------------------------------------------------------------------+
+  | 1      CocaCola           5.000ltr     20.00          0.00    100.00 |
+  | 14     FruitSalad         5.000cup     50.00          0.00    250.00 |
+  |######################################################################|
+  |                                   |                                  |
+  |                                   |----> cursor-bar                  |
+  |             Bill-screen                                              |
+  |                                                                      |
+  |______________________________________________________________________|
+  | No of Items: 2           CursorBar Position:3      Basic Amt: 350.00 |
+  | +--------------------------------------------+       Tax Amt:   0.00 |
+  | |                                            |      Misc Amt:   0.00 |
+  | |     BILL-AMOUNT-DETAILS                    |      Serv Amt:   0.00 |
+  | |                                            |      Tot Disc:   0.00 |
+  | +--------------------------------------------+      PAYBLE  : 350.00 |
+  +----------------------------------------------------------------------+
+  | F1:Pieces F2:ItemDisc  F3:Re-CALC  F4:Refresh  F5:Stock  F6:Misclen  |
+  | F7:Amt-Disc  F8:%Discount  F9:Cheque  F10:Cash  F11:Card  F12:Credit |
+  +----------------------------------------------------------------------+
+
+
+
+  HOW KOT-SCREEN LOOK LIKE - ?
+
+  Kot-Screen Has TWO-Screens   1) Left Screen  2) Right Screen
+  Note: This kot-screen will be activated if
+            Software for Kot set 'Y' in OPARATIONS-setting in Setup-Mode.
+        To enter this screen, bill-screen must not have items.
+  _________________________________________________________________________
+  | KOT-BILLING:                                                          |
+  +-----------------------------------------------------------------------+
+  | Tbl:____  Wtr:____  Entity:_____  KotNo:_____ Type: Bill-Table(blink) |
+  |_______________________________________________________________________|
+  | Code  Item-Name       Quantity   | Tbl   Wtr    Basic-Amt    In-time  |
+  +----------------------------------+------------------------------------+
+  | 1     CocaCola         5.00ltr   | 1 ### 4 ####### 350.00 ## 07:00:00 |
+  | 14    Fruit-Salad      5.00cup   | 10    5        1000.00    07:05:44 |
+  |##################################| 25    15         80.00    07:10:55 |
+  |                                  |                                    |
+  |                                  |                                    |
+  |                                  |                                    |
+  |                                  |                                    |
+  |         Left-Screen              |         Right-Screen               |
+  |                                  |                                    |
+  |                                  |                                    |
+  |                                  |                                    |
+  |__________________________________|                                    |
+  |CurBar:3  Items:2 Instr'n:o'fruits|                                    |
+  +----------------------------------+                                    |
+  | F1:KotOn F2:Bill-Tbl F3:Scrl-Kot |____________________________________|
+  | F4:Txfer  F5:Cancel  F6:Instr'n  | CurBar:1   Tbls:3     Amt: 1430    |
+  +----------------------------------+------------------------------------+
+
+ 
+    
+
+

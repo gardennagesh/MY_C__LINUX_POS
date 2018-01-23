@@ -1,5 +1,5 @@
 		/* key.h macros for documentation */
-
+# define nch  ' '
 # define FLD_CHAR  	1
 # define HOT_KEY   	2
 # define AFLD_CHAR 	3
